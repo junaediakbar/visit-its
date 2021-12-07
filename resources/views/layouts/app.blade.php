@@ -63,9 +63,11 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               @if(str_contains(Route::currentRouteName(), 'user'))
-              <a class="nav-link" aria-current="page" href="/user/kunjungans">Home</a>
+              <a class="nav-link" aria-current="page" href="{{ route('user.kunjungans.index') }}">Home</a>
+              @elseif(str_contains(Route::currentRouteName(), 'admin'))
+              <a class="nav-link" aria-current="page" href="{{ route('admin.kunjungans.index') }}">Home</a>
               @else
-              <a class="nav-link" aria-current="page" href="/admin/kunjungans">Home</a>
+              <a class="nav-link" aria-current="page" href="{{ route('login') }}">Home</a>
               @endif
             </li>
             <li class="nav-item">
