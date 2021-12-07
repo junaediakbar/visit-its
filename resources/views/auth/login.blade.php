@@ -4,8 +4,14 @@
 <main class="login-form">
     <div class="cotainer">
         <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="card my-3">
+         
+            <div class="col-md-4 d-flex flex-column  justify-content-center">
+                <div class="d-flex flex-column  align-items-center">
+
+                    <img  class="img border-0 w-75 my-5" src="{{ asset('assets/logo_evits.png')}}" alt="Logo E-Vits">
+                </div>
+
+                <div class="card mb-5">
                     <h3 class="card-header text-center">Login</h3>
                     <div class="card-body">
                         <form method="POST" action="{{ route('login.custom') }}">

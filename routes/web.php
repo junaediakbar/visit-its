@@ -27,6 +27,7 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 
 Route::name('admin.')->group(function () {
     Route::resource('admin/kunjungans', KunjunganController::class);
+    Route::get('admin/registration',  [CustomAuthController::class, 'registration'])->name('register-admin');
 });
 Route::name('user.')->group(function () {
     Route::resource('user/kunjungans', KunjunganUserController::class);
