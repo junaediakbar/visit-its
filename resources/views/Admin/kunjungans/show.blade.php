@@ -12,7 +12,7 @@
             'durasi_tamu'=>random_int(1,10)*30,
             'konfirmasi_tamu'=>0,
             'file_pendukung'=>'' -->
-            <div class=" card border-0 mt-3 d-flex flex-row">     
+            <div class=" card border-0 mt-5 d-flex flex-row">     
 
 <div class="row pt-4 pb-2">
    <div class="col-lg-12 margin-tb">
