@@ -1,0 +1,18 @@
+body {
+    background-color: #f1f4f5;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.bg-light {
+    background-color: #ffffff;
+}
+
+#navbarExample01 {
+    display: flex;
+    justify-content: space-between;
+}
+.bg-primary {
+    background-color: #013880 !important;
+}

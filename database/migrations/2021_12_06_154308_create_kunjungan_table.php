@@ -16,15 +16,15 @@ class CreateKunjunganTable extends Migration
         Schema::create('kunjungan', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('admin_id');
+            $table->integer('admin_id')->default(0);
             $table->string('jenis_tamu');
             $table->string('nama_tamu');
             $table->string('instansi_tamu');
             $table->string('nama_kegiatan');
             $table->date('waktu_tamu');
             $table->integer('durasi_tamu');
-            $table->integer('konfirmasi_tamu');
-            $table->string('file_pendukung');
+            $table->integer('konfirmasi_tamu')->default(0);
+            $table->string('file_pendukung')->nullable();
             $table->timestamps();
         });
     }
