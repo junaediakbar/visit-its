@@ -30,7 +30,6 @@ Route::name('admin.')->group(function () {
 });
 Route::name('user.')->group(function () {
     Route::resource('user/kunjungans', KunjunganUserController::class);
-
 });
 Route::get('about', function(){
     return view('about');

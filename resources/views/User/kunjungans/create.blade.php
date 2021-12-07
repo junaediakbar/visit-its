@@ -32,10 +32,10 @@
             'konfirmasi_tamu'=>0,
             'file_pendukung'=>'' -->
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12 d-none">
                 <div class="form-group">
                     <strong>User id</strong>
-                    <input type="text" name="user_id" class="form-control" placeholder="Id User">
+                    <input type="text" name="user_id" class="form-control" placeholder="Id User" value="{{$user_id}}">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

@@ -5,7 +5,7 @@
     <div class="cotainer">
         <div class="row justify-content-center">
             <div class="col-md-4">
-                <div class="card">
+                <div class="card my-3">
                     <h3 class="card-header text-center">Login</h3>
                     <div class="card-body">
                         <form method="POST" action="{{ route('login.custom') }}">
@@ -32,10 +32,9 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="d-grid mx-auto">
-                                <button type="submit" class="btn btn-dark btn-block">Masuk</button>
+                            <div class="d-grid mx-auto mb-2">
+                                <button type="submit" class="btn btn-dark bg-primary btn-block">Masuk</button>
                             </div>
-                            <br/>
                             <div class="d-grid mx-auto">
                                 <a class="btn btn-dark btn-block" href="{{ route('register-user') }}">Daftar Akun</a>
                             </div>

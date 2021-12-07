@@ -30,7 +30,7 @@
                 pengunjung maupun administrator, sehingga tamu undangan dapat 
                 terdata dengan baik.
             </p>
-            @if(str_contains(Route::currentRouteName(), 'user'))
+              @if(str_contains(url()->previous(), 'user'))
               <a class="btn btn-primary bg-primary"  href="/user/kunjungans/create">Visit Now!</a>
               @else
               <a class="btn btn-primary bg-primary"  href="/admin/kunjungans/create">Visit Now!</a>

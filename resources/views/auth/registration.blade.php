@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="signup-form">
-    <div class="cotainer">
+<main class="signup-form my-5">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card">
@@ -70,9 +70,8 @@
                                 </div>
                             </div>
                             <div class="d-grid mx-auto">
-                                <button type="submit" class="btn btn-dark btn-block">Daftar</button>
+                                <button type="submit" class="btn btn-dark bg-primary btn-block mb-2">Daftar</button>
                             </div>
-                            <br/>
                             <div class="d-grid mx-auto">
                                 <a href="{{ route('login') }}" class="btn btn-dark btn-block">Sudah punya akun</a>
                             </div>

@@ -6,6 +6,7 @@ use App\Models\Kunjungan;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadFile;
 use App\Models\File;
+use Illuminate\Support\Facades\Auth;
 
 class KunjunganUserController extends Controller
 {
@@ -17,9 +18,12 @@ class KunjunganUserController extends Controller
     public function index()
     {
 
-        // perlu User id dari auth
-        $kunjungans = Kunjungan::latest()->where('user_id',1)->paginate(5);
-
+        if(Auth::user()==null){
+            return redirect('login');
+        }
+        $user_id = Auth::user()->id;
+        $kunjungans = Kunjungan::latest()->where('user_id',$user_id)->paginate(5);
+      
         return view('User.kunjungans.index', compact('kunjungans'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -31,7 +35,12 @@ class KunjunganUserController extends Controller
      */
     public function create()
     {
-        return view('User.kunjungans.create');
+            if(Auth::user()==null){
+                return redirect('login');
+            }
+            $user_id = Auth::user()->id;
+            return view('User.kunjungans.create',compact('user_id'));
+
     }
 
     /**
@@ -85,6 +94,13 @@ class KunjunganUserController extends Controller
      */
     public function edit(Kunjungan $kunjungan)
     {
+        if(Auth::user()==null){
+            return redirect('login');
+        }
+        $user_id = Auth::user()->id;
+        if($kunjungan->user_id!=$user_id){
+            return redirect()->route('user.kunjungans.index');
+        }
         return view('User.kunjungans.edit', compact('kunjungan'));
     }
 
