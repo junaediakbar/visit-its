@@ -76,13 +76,15 @@
             </li>
           </ul>
         </div>
+        @auth
         <div>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">Logout</a>
+              <a class="nav-link" aria-current="page" href="{{ route('signout') }}">Logout</a>
             </li>
           </ul>
         </div>
+        @endauth
       </div>
     </div>
   </nav>
