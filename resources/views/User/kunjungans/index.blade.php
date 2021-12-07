@@ -39,23 +39,17 @@
                 <td>{{ $kunjungan->instansi_tamu }}</td>
                 <td>
                     @if($kunjungan->konfirmasi_tamu == 0)
-                    <div class="d-flex bg-warning p-2 align-items-center justify-content-center">
-                    <p class="text-white">
+                        <span class="badge bg-warning text-black text-center">
                             Belum terkonfirmasi
-                        </p>
-                    </div>
+                        </span>
                     @elseif($kunjungan->konfirmasi_tamu == 1)
-                    <div class="d-flex bg-success p-2 align-items-center justify-content-center">
-                        <p class="text-white">
+                    <span class="badge bg-success text-black text-center">
                             Terkonfirmasi
-                        </p>
-                    </div>
+                    </span>
                     @else
-                    <div class="d-flex bg-danger p-2 align-items-center justify-content-center">
-                    <p class="text-white">
+                    <span class="badge bg-danger text-black text-center">
                             Ditolak
-                        </p>
-                    </div>
+                    </span>
                     @endif
             </td>
                 <td>{{date('j F, Y', strtotime( $kunjungan->waktu_tamu )) }}</td>

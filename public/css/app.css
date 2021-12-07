@@ -16,3 +16,10 @@ body {
 .bg-primary {
     background-color: #013880 !important;
 }
+.bg-none {
+    background-color: transparent;
+}
+
+.text-primary {
+    color: #013880 !important;
+}

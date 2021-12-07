@@ -1,13 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
+    <div class="row pt-4 pb-2">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Edit kunjungan</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('user.kunjungans.index') }}" title="Go back"> <i class="fas fa-backward "></i> Back</a>
             </div>
         </div>
     </div>
@@ -78,7 +75,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>File Pendukung</strong>
-                    <input type="file" name="file" class="form-control" accept=".jpg,.jpeg,.bmp,.png,.gif,.doc,.docx,.csv,.rtf,.xlsx,.xls,.txt,.pdf,.zip" value={{$kunjungan->file_pendukung}}>
+                    <input type="file" name="file" class="form-control" value="{{ URL::asset($kunjungan->file_pendukung)}}" accept=".jpg,.jpeg,.bmp,.png,.gif,.doc,.docx,.csv,.rtf,.xlsx,.xls,.txt,.pdf,.zip" >
                 </div>
             </div>
             <div class="d-none col-xs-12 col-sm-12 col-md-12">
@@ -88,7 +85,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary bg-primary w-100">Submit</button>
             </div>
      
             

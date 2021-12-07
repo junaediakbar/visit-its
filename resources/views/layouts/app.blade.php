@@ -1,8 +1,8 @@
 <html>
 
 <head>
-    <title>App Name - @yield('title')</title>
-
+    <title>  Visit ITS @yield('title')</title>
+    <link rel="shortcut icon" href="{{ asset('assets/logo_evits.png')}}">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
@@ -61,14 +61,18 @@
       <div class="collapse navbar-collapse px-5" id="navbarExample01">
         <div class="links">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" aria-current="page" href="#">Home</a>
+            <li class="nav-item">
+              @if(str_contains(Route::currentRouteName(), 'user'))
+              <a class="nav-link" aria-current="page" href="/user/kunjungans">Home</a>
+              @else
+              <a class="nav-link" aria-current="page" href="/admin/kunjungans">Home</a>
+              @endif
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">My Visit</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="/about">About</a>
             </li>
           </ul>
         </div>
@@ -91,7 +95,7 @@
         @yield('content')
     </div>
     <div class="text-center footer bg-primary">
-        <p> &copy; visit its 2021</p>
+        <p> &copy; Copyright E-VITS Team 2021</p>
     </div>
 
     

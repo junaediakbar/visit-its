@@ -27,7 +27,7 @@
         @csrf
         @method('PUT')
 
-            <div class="row">
+            <div class="row pt-4 pb-2">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>User id</strong>
@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary bg-primary w-100">Submit</button>
             </div>
      
             

@@ -16,6 +16,8 @@ class KunjunganUserController extends Controller
      */
     public function index()
     {
+
+        // perlu User id dari auth
         $kunjungans = Kunjungan::latest()->where('user_id',1)->paginate(5);
 
         return view('User.kunjungans.index', compact('kunjungans'))
