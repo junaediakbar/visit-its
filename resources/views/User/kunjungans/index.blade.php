@@ -7,7 +7,7 @@
                 <h2>List Kunjungan </h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('kunjungans.create') }}" title="Create a kunjungan"> <i class="fas fa-plus-circle"></i>
+                <a class="btn btn-success" href="{{ route('user.kunjungans.create') }}" title="Create a kunjungan"> <i class="fas fa-plus-circle"></i>
                     </a>
             </div>
         </div>
@@ -39,20 +39,34 @@
                 <td>{{ $kunjungan->instansi_tamu }}</td>
                 <td>
                     @if($kunjungan->konfirmasi_tamu == 0)
-                    Belum terkonfirmasi
+                    <div class="d-flex bg-warning p-2 align-items-center justify-content-center">
+                    <p class="text-white">
+                            Belum terkonfirmasi
+                        </p>
+                    </div>
+                    @elseif($kunjungan->konfirmasi_tamu == 1)
+                    <div class="d-flex bg-success p-2 align-items-center justify-content-center">
+                        <p class="text-white">
+                            Terkonfirmasi
+                        </p>
+                    </div>
                     @else
-                    Terkonfrimasi
+                    <div class="d-flex bg-danger p-2 align-items-center justify-content-center">
+                    <p class="text-white">
+                            Ditolak
+                        </p>
+                    </div>
                     @endif
             </td>
                 <td>{{date('j F, Y', strtotime( $kunjungan->waktu_tamu )) }}</td>
                 <td>
-                    <form action="{{ route('kunjungans.destroy', $kunjungan->id) }}" method="POST">
+                    <form action="{{ route('user.kunjungans.destroy', $kunjungan->id) }}" method="POST">
 
-                        <a href="{{ route('kunjungans.show', $kunjungan->id) }}" title="show">
+                        <a href="{{ route('user.kunjungans.show', $kunjungan->id) }}" title="show">
                             <i class="fas fa-eye text-success  fa-lg"></i>
                         </a>
 
-                        <a href="{{ route('kunjungans.edit', $kunjungan->id) }}">
+                        <a href="{{ route('user.kunjungans.edit', $kunjungan->id) }}">
                             <i class="fas fa-edit  fa-lg"></i>
 
                         </a>

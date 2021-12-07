@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\UploadFile;
 use App\Models\File;
 
-class KunjunganController extends Controller
+class KunjunganUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class KunjunganController extends Controller
      */
     public function index()
     {
-        $kunjungans = Kunjungan::latest()->paginate(5);
+        $kunjungans = Kunjungan::latest()->where('user_id',1)->paginate(5);
 
-        return view('Admin.kunjungans.index', compact('kunjungans'))
+        return view('User.kunjungans.index', compact('kunjungans'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -29,7 +29,7 @@ class KunjunganController extends Controller
      */
     public function create()
     {
-        return view('Admin.kunjungans.create');
+        return view('User.kunjungans.create');
     }
 
     /**
@@ -59,7 +59,7 @@ class KunjunganController extends Controller
         // return $request;
         Kunjungan::create($request->except(['file']));
 
-        return redirect()->route('admin.kunjungans.index')
+        return redirect()->route('user.kunjungans.index')
             ->with('success', 'Permintaan kunjungan berhasil dibuat.');
     }
 
@@ -72,7 +72,7 @@ class KunjunganController extends Controller
     public function show(Kunjungan $kunjungan)
     {
         $filename = preg_replace("/^.+\\\\/", '', $kunjungan->file_pendukung);
-        return view('Admin.kunjungans.show', compact('kunjungan','filename'));
+        return view('User.kunjungans.show', compact('kunjungan','filename'));
     }
 
     /**
@@ -83,7 +83,7 @@ class KunjunganController extends Controller
      */
     public function edit(Kunjungan $kunjungan)
     {
-        return view('Admin.kunjungans.edit', compact('kunjungan'));
+        return view('User.kunjungans.edit', compact('kunjungan'));
     }
 
     /**
@@ -112,7 +112,7 @@ class KunjunganController extends Controller
         // return $request;
         $kunjungan->update($request->except(['file']));
 
-        return redirect()->route('admin.kunjungans.index')
+        return redirect()->route('user.kunjungans.index')
             ->with('success', 'Data kunjungan berhasil diupdate');
     }
 
@@ -126,7 +126,7 @@ class KunjunganController extends Controller
     {
         $kunjungan->delete();
 
-        return redirect()->route('admin.kunjungans.index')
+        return redirect()->route('user.kunjungans.index')
             ->with('success', 'Data kunjungan berhasi dihapus'); //
     }
 }

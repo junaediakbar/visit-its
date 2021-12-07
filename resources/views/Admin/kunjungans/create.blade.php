@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit kunjungan</h2>
+                <h2>Form Registrasi Tamu</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('kunjungans.index') }}" title="Go back"> <i class="fas fa-backward "></i> Back</a>
+                <a class="btn btn-primary" href="{{ route('admin.kunjungans.index') }}" title="Go back"> <i class="fas fa-backward "></i> </a>
             </div>
         </div>
     </div>
@@ -22,28 +22,35 @@
             </ul>
         </div>
     @endif
-
-    <form action="{{ route('kunjungans.update', $kunjungan->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.kunjungans.store') }}" method="POST" enctype="multipart/form-data" >
         @csrf
-        @method('PUT')
-
-            <div class="row">
+            <!-- 'user_id'=>$i,
+            'admin_id'=>$i,
+            'jenis_tamu'=> implode(",", $faker->randomElements(['Event', 'Undangan', 'Personal'], 1)),
+            'nama_tamu'=> $faker->name,
+            'instansi_tamu'=>implode(",", $faker->randomElements(['Pemerintah','ITS', 'UB', 'UNAIR'], 1)),
+            'nama_kegiatan'=>implode(",", $faker->randomElements(['Seminar','Kunjungan', 'Akreditasi'], 1)).' '.implode(",", $faker->randomElements(['Pemerintah','Sosialisasi','Prestasi', 'Olahraga', 'Akademik'], 1)).' '.implode(",", $faker->randomElements(['Pemerintah','ITS', 'UB', 'UNAIR'], 1)).' '.$faker->city ,
+            'waktu_tamu'=>$faker->dateTimeBetween($startDate = '-30 years', $endDate = 'now'),
+            'durasi_tamu'=>random_int(1,10)*30,
+            'konfirmasi_tamu'=>0,
+            'file_pendukung'=>'' -->
+        <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>User id</strong>
-                    <input type="text" name="user_id" class="form-control" value="{{$kunjungan->user_id}}" placeholder="Id User" readonly>
+                    <input type="text" name="user_id" class="form-control" placeholder="Id User">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Name:</strong>
-                    <input type="text" name="nama_tamu" class="form-control" value="{{$kunjungan->nama_tamu}}" placeholder="Name">
+                    <input type="text" name="nama_tamu" class="form-control" placeholder="Name">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Jenis Kunjungan :</strong>
-                    <select class="form-control" name="jenis_tamu" value="{{$kunjungan->jenis_tamu}}" id="exampleFormControlSelect1"> 
+                    <select class="form-control" name="jenis_tamu" id="exampleFormControlSelect1"> 
                         <option value="Undangan">Undangan</option>
                         <option value="Event">Event</option>
                         <option value="Sosialisasi">Sosialisasi</option>
@@ -54,47 +61,37 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Instansi :</strong>
-                    <input type="text" name="instansi_tamu" class="form-control" value="{{$kunjungan->instansi_tamu}}" placeholder="Instansi">
+                    <input type="text" name="instansi_tamu" class="form-control" placeholder="Instansi">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Nama Kegiatan : </strong>
-                    <input type="text" name="nama_kegiatan" class="form-control" value="{{$kunjungan->nama_kegiatan}}" placeholder="Nama Kegiatan">
+                    <input type="text" name="nama_kegiatan" class="form-control" placeholder="Nama Kegiatan">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Waktu Pelaksanaan : </strong>
-                    <input type="date" name="waktu_tamu" class="form-control" value="{{$kunjungan->waktu_tamu}}" placeholder="Waktu Pelaksanaan">
+                    <input type="date" name="waktu_tamu" class="form-control" placeholder="Waktu Pelaksanaan">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Durasi (Menit)</strong>
-                    <input type="number" name="durasi_tamu" class="form-control" value="{{$kunjungan->durasi_tamu}}" placeholder="Durasi">
+                    <input type="number" name="durasi_tamu" class="form-control" placeholder="Durasi">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>File Pendukung</strong>
-                    <input type="file" name="file" class="form-control" accept=".jpg,.jpeg,.bmp,.png,.gif,.doc,.docx,.csv,.rtf,.xlsx,.xls,.txt,.pdf,.zip" value={{$kunjungan->file_pendukung}}>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Konfirmasi Kunjungan:</strong>
-                    <select class="form-control"  name="konfirmasi_tamu" value={{$kunjungan->konfirmasi_tamu}}id="exampleFormControlSelect1"> 
-                        <option value="0">Belum terkonfirmasi</option>
-                        <option value="1">Konfirmasi</option>
-                        <option value="-1">Kunjungan ditolak</option>
-                    </select>
+                    <input type="file" name="file" class="form-control" accept=".jpg,.jpeg,.bmp,.png,.gif,.doc,.docx,.csv,.rtf,.xlsx,.xls,.txt,.pdf,.zip">
+
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-     
             
         </div>
 

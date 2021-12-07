@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Add New Product</h2>
+                <h2>Form Registrasi Tamu</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('kunjungans.index') }}" title="Go back"> <i class="fas fa-backward "></i> </a>
+                <a class="btn btn-primary" href="{{ route('user.kunjungans.index') }}" title="Go back"> <i class="fas fa-backward "></i> </a>
             </div>
         </div>
     </div>
@@ -22,7 +22,7 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('kunjungans.store') }}" method="POST" enctype="multipart/form-data" >
+    <form action="{{ route('user.kunjungans.store') }}" method="POST" enctype="multipart/form-data" >
         @csrf
             <!-- 'user_id'=>$i,
             'admin_id'=>$i,

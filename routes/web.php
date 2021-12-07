@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KunjunganController;
+use App\Http\Controllers\KunjunganUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,5 +17,13 @@ use App\Http\Controllers\KunjunganController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::name('admin.')->group(function () {
+    Route::resource('admin/kunjungans', KunjunganController::class);
+});
 
-Route::resource('kunjungans', KunjunganController::class);
+
+Route::name('user.')->group(function () {
+    Route::resource('user/kunjungans', KunjunganUserController::class);
+    
+});
+
