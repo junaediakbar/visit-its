@@ -78,6 +78,7 @@
             </li>
           </ul>
         </div>
+        @if(str_contains(Route::current()->getName(), 'user'))
         @auth
         <div>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -86,7 +87,19 @@
             </li>
           </ul>
         </div>
+        
         @endauth
+        @endif
+        @if(session()->has('LoggedAdmin') && str_contains(Route::current()->getName(), 'admin'))
+        <div>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{{ route('logout-admin.custom') }}">Logout</a>
+            </li>
+          </ul>
+        </div>
+        @endif
+
       </div>
     </div>
   </nav>

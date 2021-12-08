@@ -26,15 +26,20 @@ Route::get('registration', [CustomAuthController::class, 'registration'])->name(
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
+
 Route::get('admin/registration',  [CustomAuthAdminController::class, 'registration'])->name('register-admin');
 Route::post('admin/custom-registration', [CustomAuthAdminController::class, 'customRegistration'])->name('register-admin.custom');
+Route::get('admin/login', [CustomAuthAdminController::class, 'login'])->name('login-admin.custom');
+Route::post('admin/check', [CustomAuthAdminController::class, 'check'])->name('check-admin.custom');
+Route::get('admin/logout', [CustomAuthAdminController::class, 'logout'])->name('logout-admin.custom');
 
 
-Route::name('admin.')->group(function () {
-    Route::resource('admin/kunjungans', KunjunganController::class);
-
-
+Route::group(['middleware'=>['AuthCheck']], function(){
+    Route::name('admin.')->group(function () {
+        Route::resource('admin/kunjungans', KunjunganController::class);
+    });
 });
+
 Route::name('user.')->group(function () {
     Route::resource('user/kunjungans', KunjunganUserController::class);
 });
