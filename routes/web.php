@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KunjunganController;
 use App\Http\Controllers\KunjunganUserController;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\CustomAuthAdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,9 +26,14 @@ Route::get('registration', [CustomAuthController::class, 'registration'])->name(
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
+Route::get('admin/registration',  [CustomAuthAdminController::class, 'registration'])->name('register-admin');
+Route::post('admin/custom-registration', [CustomAuthAdminController::class, 'customRegistration'])->name('register-admin.custom');
+
+
 Route::name('admin.')->group(function () {
     Route::resource('admin/kunjungans', KunjunganController::class);
-    Route::get('admin/registration',  [CustomAuthController::class, 'registration'])->name('register-admin');
+
+
 });
 Route::name('user.')->group(function () {
     Route::resource('user/kunjungans', KunjunganUserController::class);

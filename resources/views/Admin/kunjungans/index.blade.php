@@ -2,14 +2,21 @@
 
 @section('content')
     <div class="row pt-4 pb-2">
-        <div class="d-flex col-lg-12 margin-tb align-items-center">
-            <div class="mr-2 pull-left">
+        <div class="d-flex align-items-center">
+            <div class="mr-2">
                 <h2>List Kunjungan </h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('admin.kunjungans.create') }}" title="Create a kunjungan"> <i class="fas fa-plus-circle"></i>
+             <div class="d-flex justify-content-between">
+
+                    <a class="btn btn-success mr-2" href="{{ route('admin.kunjungans.create') }}" title="Create a kunjungan"> 
+                    Add Visit        
+                    <i class="fas fa-plus-circle"></i>
+                  
+                      </a>              
+                    <a class="btn btn-primary" href="{{ route('register-admin') }}" title="Create a kunjungan">Add Admin <i class="fas fa-plus-circle"></i>
                     </a>
-            </div>
+                
+             </div>
         </div>
     </div>
 

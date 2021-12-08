@@ -6,9 +6,9 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card">
-                    <h3 class="card-header text-center">Register User</h3>
+                    <h3 class="card-header text-center">Register Admin</h3>
                     <div class="card-body">
-                        <form action="{{ route('register.custom') }}" method="POST">
+                        <form action="{{ route('register-admin.custom') }}" method="POST">
                             @csrf
                             <div class="form-group mb-3">
 
