@@ -6,17 +6,7 @@
             <div class="ml-3">
                 <h2>List Kunjungan </h2>
             </div>
-             <div class="d-flex justify-content-between">
-
-                    <a class="btn btn-success mx-2" href="{{ route('admin.kunjungans.create') }}" title="Create a kunjungan"> 
-                    Add Visit        
-                    <i class="fas fa-plus-circle"></i>
-                  
-                      </a>              
-                    <a class="btn btn-primary" href="{{ route('register-admin') }}" title="Create a kunjungan">Add Admin <i class="fas fa-plus-circle"></i>
-                    </a>
-                
-             </div>
+   
         </div>
     </div>
 

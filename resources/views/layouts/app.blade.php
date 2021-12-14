@@ -70,9 +70,11 @@
               <a class="nav-link" aria-current="page" href="{{ route('login') }}">Home</a>
               @endif
             </li>
+            @if(!session()->has('LoggedAdmin'))
             <li class="nav-item">
-              <a class="nav-link" href="#">My Visit</a>
+              <a class="nav-link" href="{{ route('user.myvisit') }}">My Visit</a>
             </li>
+            @endif
             <li class="nav-item">
               <a class="nav-link" href="/about">About</a>
             </li>

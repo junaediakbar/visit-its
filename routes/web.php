@@ -42,6 +42,7 @@ Route::group(['middleware'=>['AuthCheck']], function(){
 
 Route::name('user.')->group(function () {
     Route::resource('user/kunjungans', KunjunganUserController::class);
+    Route::get('user/myvisit',[KunjunganUserController::class,'myvisit'])->name('myvisit');
 });
 Route::get('about', function(){
     return view('about');

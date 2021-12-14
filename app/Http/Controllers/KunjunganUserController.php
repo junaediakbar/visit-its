@@ -27,6 +27,18 @@ class KunjunganUserController extends Controller
         return view('User.kunjungans.index', compact('kunjungans'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+    public function myvisit(){
+        if(Auth::user()==null){
+            return redirect('login');
+        }
+        $user_id = Auth::user()->id;
+        $user_name= Auth::user()->name;
+        $kunjungans = Kunjungan::latest()->where('user_id',$user_id)->where('nama_tamu',$user_name)->paginate(5);
+       
+              
+        return view('User.kunjungans.myvisit', compact('kunjungans'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
 
     /**
      * Show the form for creating a new resource.
