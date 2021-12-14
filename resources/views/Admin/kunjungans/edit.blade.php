@@ -2,13 +2,11 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-12 margin-tb">
+        <div class="col-lg-12 margin-tb mt-5">
             <div class="pull-left">
                 <h2>Edit kunjungan</h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('admin.kunjungans.index') }}" title="Go back"> <i class="fas fa-backward "></i> Back</a>
-            </div>
+    
         </div>
     </div>
 
