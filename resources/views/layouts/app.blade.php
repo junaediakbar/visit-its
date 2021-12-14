@@ -62,9 +62,9 @@
         <div class="links">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              @if(str_contains(Route::currentRouteName(), 'user'))
+              @if(Auth::check())
               <a class="nav-link" aria-current="page" href="{{ route('user.kunjungans.index') }}">Home</a>
-              @elseif(str_contains(Route::currentRouteName(), 'admin'))
+              @elseif(session()->has('LoggedAdmin'))
               <a class="nav-link" aria-current="page" href="{{ route('admin.kunjungans.index') }}">Home</a>
               @else
               <a class="nav-link" aria-current="page" href="{{ route('login') }}">Home</a>
